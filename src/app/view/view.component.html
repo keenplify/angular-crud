@@ -1,0 +1,22 @@
+<a routerLink="">Back</a>
+
+<div class="card" *ngIf="agent; else noAgent">
+  <div class="card-title">{{ agent.id.toString() }} {{ agent.name }}</div>
+  <img src="{{ agent.avatar }}" />
+  <form [formGroup]="editAgentForm" (ngSubmit)="editAgentFormSubmit()">
+    <div class="form-group">
+      <label for="name">Agent Name: </label>
+      <input name="name" id="name" formControlName="name" />
+    </div>
+    <div class="form-group">
+      <label for="avatar">Agent Avatar Link: </label>
+      <input name="avatar" id="avatar" formControlName="avatar" />
+    </div>
+    <button>Edit Agent</button>
+  </form>
+  <button (click)="deleteAgent(agent.id.toString())">Delete Agent</button>
+</div>
+
+<ng-template #noAgent>
+  <p>Agent not found.</p>
+</ng-template>

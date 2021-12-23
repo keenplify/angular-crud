@@ -1,0 +1,27 @@
+<a routerLink="add">Add New Agent</a>
+
+<div>
+  <table>
+    <caption>
+      Valorant Agents
+    </caption>
+    <thead>
+      <tr>
+        <td>Agent Name</td>
+        <td>Agent Type</td>
+        <td>Actions</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let agent of agents">
+        <td>{{ agent.name }}</td>
+        <td>{{ agent.createdAt }}</td>
+        <td>
+          <div>
+            <a [routerLink]="['view', agent.id]">View Agent</a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
